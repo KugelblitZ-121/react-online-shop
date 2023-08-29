@@ -26,14 +26,14 @@ const Promo: React.FC = () => {
           </button>
           <div className="flex items-center ml-5">
             <button
-              className="bg-red-700 text-white px-5 py-2 rounded-md mr-5 text-bold w-18 text-2xl font-bold"
+              className="bg-red-700 text-white px-5 py-2 rounded-md mr-5 text-bold text-2xl font-bold"
               onClick={handleDecrement}
             >
               -
             </button>
             <span className="text-2xl">{quantity}</span>
             <button
-              className="bg-red-700 text-white px-4 py-2 rounded-md ml-5 w-15 text-2xl font-bold"
+              className="bg-red-700 text-white px-4 py-2 rounded-md ml-5 text-2xl font-bold"
               onClick={handleIncrement}
             >
               +
