@@ -14,7 +14,7 @@ const Promo: React.FC = () => {
     }
   };
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]">
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-6xl font-bold mb-10">Our new PROMO</h1>
         <div className="flex flex-row">
@@ -41,9 +41,9 @@ const Promo: React.FC = () => {
           </div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <img className="h-[calc(70vh)] " src="../../src/assets/background3.png" alt="New offer" />
-      </div>
+      </div> */}
     </div>
   );
 };
