@@ -2,7 +2,7 @@ import { useState } from "react";
 import Item from "../entities/item";
 
 const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
-  const [quantity, setQuantity] = useState(1); // Initial quantity
+  const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);

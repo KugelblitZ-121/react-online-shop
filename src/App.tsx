@@ -3,15 +3,14 @@ import "./App.css";
 import Menu from "./components/Menu.js";
 import Promo from "./components/Promo.js";
 
-function App() {
-  const name: string = "Gh";
+const App = () => {
   return (
     <>
-      <Navbar last={name}></Navbar>
+      <Navbar />
       <Promo />
       <Menu />
     </>
   );
-}
+};
 
 export default App;
