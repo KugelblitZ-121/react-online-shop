@@ -20,7 +20,7 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
         <div className="">
           <div className="text-center font-bold text-xl mb-2 mt-2 flex flex-row justify-between">
             <span className="text-2xl">{item.name}</span>
-            <span className="text-2xl">{item.price}$</span>
+            <span className="text-2xl">{item.price} $</span>
           </div>
           <div className="flex flex-row">
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row">
