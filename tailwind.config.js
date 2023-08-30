@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "custom-gray": "#0F0F0F", // Define your custom color
+        "custom-gray": "#191313", // Define your custom color
       },
     },
   },

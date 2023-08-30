@@ -2,21 +2,22 @@ import { useState } from "react";
 import Item from "../entities/item";
 
 const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(item.quantity);
 
   const handleIncrement = () => {
     setQuantity((prevState) => prevState + 1);
   };
 
   const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+    if (quantity > 0) {
+      setQuantity((prevState) => prevState - 1);
     }
   };
   const handleAddToCart = () => {
     item.quantity = quantity;
 
-    console.log(quantity);
+    console.log(item.quantity);
+    setQuantity(0);
   };
   return (
     <div className="rounded overflow-hidden">
@@ -33,15 +34,10 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
               className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row ${
                 quantity === 0 ? "opacity-50 cursor-not-allowed" : ""
               }`}
+              disabled={quantity === 0}
+              onClick={handleAddToCart}
             >
-              <span
-                className=""
-                onClick={() => {
-                  handleAddToCart();
-                }}
-              >
-                Add to cart
-              </span>
+              <span>Add to cart</span>
             </button>
             <div className="flex items-center ml-5">
               <button

@@ -39,7 +39,7 @@ const Menu = () => {
         ))}
       </div>
       <div className="grid grid-cols-4 gap-y-20">
-        {Items.map((item) => item.type === types[selectedType] && <MenuItem item={item} key={item.name} />)}
+        {Items.map((item, index) => item.type === types[selectedType] && <MenuItem item={item} key={index} />)}
       </div>
     </div>
   );
