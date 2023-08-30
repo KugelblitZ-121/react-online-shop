@@ -3,7 +3,7 @@ import Item from "../entities/item";
 import { MenuContext } from "../store/menu-context";
 
 const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
-  const { addItem, menu, updateCartItemsNo } = useContext(MenuContext);
+  const { addItem, updateCartItemsNo } = useContext(MenuContext);
 
   const [quantity, setQuantity] = useState(item.quantity);
 
@@ -19,8 +19,7 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
   const handleAddToCart = (item: Item) => {
     item.quantity = quantity;
     addItem(item);
-    updateCartItemsNo(menu.length + 1);
-    console.log(menu);
+    updateCartItemsNo();
     setQuantity(0);
   };
   return (

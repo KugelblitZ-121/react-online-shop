@@ -4,14 +4,14 @@ import MenuItem from "./MenuItem";
 
 const Menu = () => {
   const Items: Item[] = [
-    new Item("Butter Chicken", 15, "../../src/assets/item1.jpg", "main"),
-    new Item("Mixed Pizza", 19, "../../src/assets/item2.jpg", "main"),
+    new Item("Butter Chicken", 15.99, "../../src/assets/item1.jpg", "main"),
+    new Item("Mixed Pizza", 19.95, "../../src/assets/item2.jpg", "main"),
     new Item("Fried Chicken", 29.99, "../../src/assets/item3.jpg", "main"),
-    new Item("Triple Burger", 22, "../../src/assets/item4.jpg", "main"),
-    new Item("Milkshake", 15, "../../src/assets/item1bev.jpg", "drinks"),
-    new Item("Green Macha", 12, "../../src/assets/item2bev.jpg", "drinks"),
-    new Item("Pudding", 7, "../../src/assets/dessert1.jpg", "desserts"),
-    new Item("Cheese cake", 10, "../../src/assets/dessert2.jpg", "desserts"),
+    new Item("Triple Burger", 22.99, "../../src/assets/item4.jpg", "main"),
+    new Item("Milkshake", 15.75, "../../src/assets/item1bev.jpg", "drinks"),
+    new Item("Green Macha", 12.5, "../../src/assets/item2bev.jpg", "drinks"),
+    new Item("Pudding", 7.99, "../../src/assets/dessert1.jpg", "desserts"),
+    new Item("Cheese cake", 9.99, "../../src/assets/dessert2.jpg", "desserts"),
   ];
   const types: string[] = ["main", "desserts", "drinks"];
 

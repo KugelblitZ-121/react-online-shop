@@ -1,16 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { MenuContext } from "../store/menu-context";
 
 const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
-  const { cartItemsNo } = useContext(MenuContext);
+  const { cartItemsNo, updateCartItemsNo } = useContext(MenuContext);
   const [isVisable] = useState(false); // [1]
+
+  useEffect(() => {
+    updateCartItemsNo();
+  }, [cartItemsNo, updateCartItemsNo]);
 
   const handleCart = () => {
     props.onCartClick(!isVisable);
   };
   return (
-    <nav className="p-5 fixed w-full bg-custom-gray">
+    <nav className="px-5 fixed w-full bg-custom-gray">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row w-full items-center justify-between">
           <img src="../../src/assets/logo.jpg" alt="logo" width="80px" />
