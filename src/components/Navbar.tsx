@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { MenuContext } from "../store/menu-context";
 
 const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
+  const { cartItemsNo } = useContext(MenuContext);
   const [isVisable] = useState(false); // [1]
 
   const handleCart = () => {
@@ -20,7 +22,7 @@ const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
               <span className="pr-4 text-3xl">
                 <BsFillCartCheckFill />
               </span>
-              <span className="">Cart</span>
+              <span className="">Cart {cartItemsNo}</span>
             </button>
             <button className="text-2xl font-bold ml-5">+12 5555</button>
           </div>

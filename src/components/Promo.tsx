@@ -13,12 +13,18 @@ const Promo: React.FC = () => {
       setQuantity(quantity - 1);
     }
   };
+  const handleAddToCart = () => {
+    console.log("Working");
+  };
   return (
     <div className="grid grid-cols-2 md:bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]">
       <div className="flex flex-col items-center justify-center col-span-2 md:col-span-1 ml-20">
         <h1 className="text-6xl font-bold mb-10">Our new PROMO</h1>
         <div className="flex flex-row">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row items-center">
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row items-center"
+            onClick={handleAddToCart}
+          >
             <span className="pr-2 text-xl lg:text-3xl">
               <BsFillCartPlusFill />
             </span>

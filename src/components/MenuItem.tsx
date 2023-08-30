@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Item from "../entities/item";
+import { MenuContext } from "../store/menu-context";
 
 const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
+  const { addItem, menu, updateCartItemsNo } = useContext(MenuContext);
+
   const [quantity, setQuantity] = useState(item.quantity);
 
   const handleIncrement = () => {
@@ -13,10 +16,11 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
       setQuantity((prevState) => prevState - 1);
     }
   };
-  const handleAddToCart = () => {
+  const handleAddToCart = (item: Item) => {
     item.quantity = quantity;
-
-    console.log(item.quantity);
+    addItem(item);
+    updateCartItemsNo(menu.length + 1);
+    console.log(menu);
     setQuantity(0);
   };
   return (
@@ -35,7 +39,9 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
                 quantity === 0 ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={quantity === 0}
-              onClick={handleAddToCart}
+              onClick={() => {
+                handleAddToCart(item);
+              }}
             >
               <span>Add to cart</span>
             </button>
