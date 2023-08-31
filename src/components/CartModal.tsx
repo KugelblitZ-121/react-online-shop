@@ -33,7 +33,10 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-md flex justify-center items-center">
+    <div
+      className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-md flex justify-center items-center"
+      onClick={handleCart}
+    >
       <div className="flex flex-col">
         <div
           className={`flex flex-row alert alert-success text-xl bg-green-500 rounded-lg px-2 py-1 ${
