@@ -4,7 +4,7 @@ import Item from "../entities/item";
 const MenuContext = React.createContext<{
   menu: Item[];
   setMenu: (items: Item[]) => void;
-  addItem: (item: Item) => void;
+  addItem: (item: Item, quantity: number) => void;
   removeItem: (id: number) => void;
   updateCartItemsNo: () => void;
   cartItemsNo: number;
@@ -28,8 +28,20 @@ const MenuProvider: React.FC = ({ children }) => {
   const [cartItemsNo, setCartItemsNo] = useState<number>(0);
   const [totalCartPrice, setTotalCartPrice] = useState<string>("0");
 
-  const addItem = (item: Item) => {
-    setMenu((prevMenu) => [...prevMenu, item]);
+  const addItem = (item: Item, quantity: number) => {
+    // Check if the item already exists in the cart
+    const existingItem = menu.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      // If item exists, update the quantity
+      const updatedCartItems = menu.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + quantity } : cartItem
+      );
+      setMenu(updatedCartItems);
+    } else {
+      // If item doesn't exist, add it to the cart
+      setMenu([...menu, { ...item, quantity: item.quantity }]);
+    }
   };
   const removeItem = (id: number) => {
     const updatedCartItems = menu.filter((item) => item.id !== id);

@@ -20,7 +20,7 @@ const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
           <img src="../../src/assets/logo.jpg" alt="logo" width="80px" />
           <div className="flex flex-row">
             <button
-              className="text-2xl font-bold py-2 px-5 border-2 border-red-800 rounded-lg bg-red-500 hover:bg-red-700 flex flex-row items-center"
+              className="text-2xl font-bold py-2 px-5 border-2 border-red-800 rounded-lg bg-red-500 hover:bg-red-700 flex flex-row items-center transition-opacity"
               onClick={handleCart}
             >
               <span className="pr-4 text-3xl">

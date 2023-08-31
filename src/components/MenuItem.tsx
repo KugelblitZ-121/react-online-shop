@@ -18,7 +18,7 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
   };
   const handleAddToCart = (item: Item) => {
     item.quantity = quantity;
-    addItem(item);
+    addItem(item, quantity);
     updateCartItemsNo();
     setQuantity(0);
   };
@@ -46,7 +46,6 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
             </button>
             <div className="flex items-center ml-5">
               <button
-                value={quantity}
                 className="bg-red-700 text-white px-5 py-2 rounded-md mr-5 text-bold w-18 text-2xl font-bold"
                 onClick={() => {
                   handleDecrement();

@@ -4,14 +4,14 @@ import MenuItem from "./MenuItem";
 
 const Menu = () => {
   const Items: Item[] = [
-    new Item(1, "Butter Chicken", 15.99, "../../src/assets/item1.jpg", "main"),
-    new Item(2, "Mixed Pizza", 19.95, "../../src/assets/item2.jpg", "main"),
-    new Item(3, "Fried Chicken", 29.99, "../../src/assets/item3.jpg", "main"),
-    new Item(4, "Triple Burger", 22.99, "../../src/assets/item4.jpg", "main"),
-    new Item(5, "Milkshake", 15.75, "../../src/assets/item1bev.jpg", "drinks"),
-    new Item(6, "Green Macha", 12.5, "../../src/assets/item2bev.jpg", "drinks"),
-    new Item(7, "Pudding", 7.99, "../../src/assets/dessert1.jpg", "desserts"),
-    new Item(8, "Cheese cake", 9.99, "../../src/assets/dessert2.jpg", "desserts"),
+    new Item(0, "Butter Chicken", 15.99, "../../src/assets/item1.jpg", "main"),
+    new Item(1, "Mixed Pizza", 19.95, "../../src/assets/item2.jpg", "main"),
+    new Item(2, "Fried Chicken", 29.99, "../../src/assets/item3.jpg", "main"),
+    new Item(3, "Triple Burger", 22.99, "../../src/assets/item4.jpg", "main"),
+    new Item(4, "Milkshake", 15.75, "../../src/assets/item1bev.jpg", "drinks"),
+    new Item(5, "Green Macha", 12.5, "../../src/assets/item2bev.jpg", "drinks"),
+    new Item(6, "Pudding", 7.99, "../../src/assets/dessert1.jpg", "desserts"),
+    new Item(7, "Cheese cake", 9.99, "../../src/assets/dessert2.jpg", "desserts"),
   ];
   const types: string[] = ["main", "desserts", "drinks"];
 
