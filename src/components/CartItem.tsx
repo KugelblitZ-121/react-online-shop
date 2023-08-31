@@ -3,7 +3,7 @@ import Item from "../entities/item";
 import { MenuContext } from "../store/menu-context";
 
 const CartItem: React.FC<{ item: Item; index: number }> = ({ item, index }) => {
-  const { menu, calculateTotalCartPrice, updateCartItemsNo, removeItem } = useContext(MenuContext);
+  const { menu, calculateTotalCartPrice, removeItem } = useContext(MenuContext);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [quantity, setQuantity] = useState(0);
 
@@ -23,7 +23,6 @@ const CartItem: React.FC<{ item: Item; index: number }> = ({ item, index }) => {
               <button
                 className="bg-red-700 text-white px-5 py-2 rounded-md mr-5 text-bold w-18 text-2xl font-bold"
                 onClick={() => {
-                  updateCartItemsNo();
                   if (item.quantity > 0) {
                     const updatedMenu = [...menu]; // Create a copy of the menu array
                     updatedMenu[index].quantity--; // Update the quantity for the specific item

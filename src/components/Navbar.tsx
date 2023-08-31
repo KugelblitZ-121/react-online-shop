@@ -26,9 +26,20 @@ const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
               <span className="pr-4 text-3xl">
                 <BsFillCartCheckFill />
               </span>
+              {cartItemsNo !== 0 && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 absolute top-0 right-0 animate-pulse"
+                  fill="pink"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  transform="translate(-15, 5)"
+                >
+                  <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                </svg>
+              )}
               <span className="">Cart {cartItemsNo}</span>
             </button>
-            <button className="text-2xl font-bold ml-5">+12 5555</button>
           </div>
         </div>
       </div>
