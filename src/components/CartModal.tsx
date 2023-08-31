@@ -63,7 +63,7 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
             <span>Close</span>
           </button>
         </div>
-        <div className="bg-custom-gray w-[calc(60vw)] h-[calc(60vh)] rounded-md">
+        <div className="bg-custom-gray w-[calc(60vw)] h-[calc(60vh)] rounded-md overflow-y-auto">
           {totalCartPrice === "0.00" ? (
             <div className="flex flex-col justify-center items-strech h-full">
               <img src="../../src/assets/logo.jpg" alt="logo" width="150px" className="mx-auto" />

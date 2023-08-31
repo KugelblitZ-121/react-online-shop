@@ -5,7 +5,7 @@ import { MenuContext } from "../store/menu-context";
 const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
   const { addItem, updateCartItemsNo } = useContext(MenuContext);
 
-  const [quantity, setQuantity] = useState(item.quantity);
+  const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
     setQuantity((prevState) => prevState + 1);
