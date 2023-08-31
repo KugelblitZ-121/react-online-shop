@@ -5,18 +5,22 @@ const MenuContext = React.createContext<{
   menu: Item[];
   setMenu: (items: Item[]) => void;
   addItem: (item: Item) => void;
+  removeItem: (id: number) => void;
   updateCartItemsNo: () => void;
   cartItemsNo: number;
   totalCartPrice: string;
   calculateTotalCartPrice: () => void;
+  handleCheckout: () => void;
 }>({
   menu: [],
   setMenu: () => {},
   addItem: () => {},
+  removeItem: () => {},
   updateCartItemsNo: () => {},
   cartItemsNo: 0,
   totalCartPrice: "0",
   calculateTotalCartPrice: () => {},
+  handleCheckout: () => {},
 });
 
 const MenuProvider: React.FC = ({ children }) => {
@@ -26,6 +30,10 @@ const MenuProvider: React.FC = ({ children }) => {
 
   const addItem = (item: Item) => {
     setMenu((prevMenu) => [...prevMenu, item]);
+  };
+  const removeItem = (id: number) => {
+    const updatedCartItems = menu.filter((item) => item.id !== id);
+    setMenu(updatedCartItems);
   };
   const updateCartItemsNo = () => {
     setCartItemsNo(menu.length);
@@ -37,6 +45,9 @@ const MenuProvider: React.FC = ({ children }) => {
     });
     setTotalCartPrice(total.toFixed(2));
   };
+  const handleCheckout = () => {
+    setMenu([]);
+  };
 
   return (
     <MenuContext.Provider
@@ -44,10 +55,12 @@ const MenuProvider: React.FC = ({ children }) => {
         menu: menu,
         setMenu: setMenu,
         addItem: addItem,
+        removeItem: removeItem,
         cartItemsNo: cartItemsNo,
         updateCartItemsNo: updateCartItemsNo,
         totalCartPrice: totalCartPrice,
         calculateTotalCartPrice: calculateTotalCartPrice,
+        handleCheckout: handleCheckout,
       }}
     >
       {children}

@@ -2,13 +2,13 @@ import { useContext, useState } from "react";
 import Item from "../entities/item";
 import { MenuContext } from "../store/menu-context";
 
-const CartItem: React.FC<{ key: number; item: Item; index: number }> = ({ key, item, index }) => {
-  const { menu, calculateTotalCartPrice, updateCartItemsNo } = useContext(MenuContext);
+const CartItem: React.FC<{ item: Item; index: number }> = ({ item, index }) => {
+  const { menu, calculateTotalCartPrice, updateCartItemsNo, removeItem } = useContext(MenuContext);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [quantity, setQuantity] = useState(0);
 
   return (
-    <div className="flex flex-col" key={key}>
+    <div className="flex flex-col">
       <div className="flex flex-row justify-between items-center px-10 py-3">
         {item.quantity > 0 && (
           <>
@@ -29,6 +29,9 @@ const CartItem: React.FC<{ key: number; item: Item; index: number }> = ({ key, i
                     updatedMenu[index].quantity--; // Update the quantity for the specific item
                     setQuantity(updatedMenu[index].quantity); // Update the local state for the quantity
                     calculateTotalCartPrice(); // Recalculate the total cart price
+                  }
+                  if (item.quantity === 0) {
+                    removeItem(item.id);
                   }
                 }}
               >
