@@ -22,7 +22,7 @@ const Promo: React.FC = () => {
   };
   return (
     <div className="grid grid-cols-2 md:bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]">
-      <div className="flex flex-col items-center justify-center col-span-2 md:col-span-1 ml-20">
+      <div className="flex flex-col items-center justify-center col-span-2 md:col-span-1 lg:ml-20">
         <h1 className="text-6xl font-bold mb-10">Our new PROMO</h1>
         <div className="flex flex-row">
           <button

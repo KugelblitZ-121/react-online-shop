@@ -23,7 +23,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="w-full pl-20 pr-20 mb-20">
+    <div className="w-full mb-20 lg:px-20 px-5">
       <h1 className="font-bold text-5xl text-start mb-10">Menu</h1>
       <div className="flex justify-items-start">
         {types.map((type, index) => (
@@ -38,7 +38,7 @@ const Menu = () => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-4 gap-y-20">
+      <div className="grid grid-cols-2 lg:grid-cols-4 lg:gap-y-20 gap-y-5">
         {Items.map((item, index) => item.type === types[selectedType] && <MenuItem item={item} key={index} />)}
       </div>
     </div>

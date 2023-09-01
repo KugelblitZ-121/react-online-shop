@@ -19,7 +19,7 @@ const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
     props.onCartClick(!isVisable);
   };
   return (
-    <nav className="px-5 fixed w-full bg-custom-gray">
+    <nav className="px-5 fixed w-full bg-custom-gray z-10">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row w-full items-center justify-between">
           <img src="../../src/assets/logo.jpg" alt="logo" width="80px" />
