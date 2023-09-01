@@ -38,7 +38,7 @@ const Menu = () => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 lg:gap-y-20 gap-y-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-y-20 gap-y-5">
         {Items.map((item, index) => item.type === types[selectedType] && <MenuItem item={item} key={index} />)}
       </div>
     </div>

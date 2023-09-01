@@ -31,10 +31,10 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
             <span>{item.name}</span>
             <span>{item.price} $</span>
           </div>
-          <div className="flex flex-col lg:flex-row">
-            <div className="flex items-center">
+          <div className="flex flex-col xl:flex-row">
+            <div className="flex items-center justify-between">
               <button
-                className="bg-red-700 text-white px-5 py-2 rounded-md mr-5 text-bold w-18 text-2xl font-bold"
+                className="bg-red-700 text-white px-5 py-2 rounded-md mr-5 text-bold  text-2xl font-bold"
                 onClick={() => {
                   handleDecrement();
                 }}
@@ -43,7 +43,7 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
               </button>
               <span className="text-2xl">{quantity}</span>
               <button
-                className="bg-red-700 text-white px-4 py-2 rounded-md ml-5 w-15 text-2xl font-bold"
+                className="bg-red-700 text-white px-4 py-2 rounded-md ml-5  text-2xl font-bold"
                 onClick={() => {
                   handleIncrement();
                 }}
@@ -53,7 +53,7 @@ const MenuItem: React.FC<{ item: Item }> = ({ item }) => {
             </div>
             <button
               value={quantity}
-              className={`bg-red-500 lg:hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row justify-center lg:ml-2 mt-2 sm:mt-0 ${
+              className={`bg-red-500 lg:hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row justify-center xl:ml-2 mt-2 xl:mt-0 ${
                 quantity === 0 ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={quantity === 0}
