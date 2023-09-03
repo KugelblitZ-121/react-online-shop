@@ -23,7 +23,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="w-full mb-20 lg:px-20 px-5">
+    <div className="w-full mb-10 lg:px-20 px-5">
       <h1 className="font-bold text-5xl text-start mb-10">Menu</h1>
       <div className="flex justify-items-start">
         {types.map((type, index) => (
