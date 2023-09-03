@@ -4,3 +4,10 @@
   padding: 2rem; */
   text-align: center;
 }
+.promo-text {
+  background-clip: text;
+  -webkit-background-clip: text; /* For Safari/WebKit */
+  color: transparent;
+  text-fill-color: transparent;
+  background-image: linear-gradient(to right, #d70e0e, #e806b3); /* Adjust gradient colors */
+}

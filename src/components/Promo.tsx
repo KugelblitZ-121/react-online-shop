@@ -24,7 +24,9 @@ const Promo: React.FC = () => {
     <div className="grid grid-cols-2 lg:bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]">
       <div className="flex flex-col items-center justify-center col-span-2 lg:col-span-1 lg:ml-20">
         <img src="../../src/assets/backgroundmobile2.png" className="lg:hidden" width={"75%"} />
-        <h1 className="text-6xl font-bold mb-10">Our new PROMO</h1>
+        <h1 className="text-6xl font-bold mb-10">
+          Our new <span className="text-6xl promo-text font-serif">PROMO</span>
+        </h1>
         <div className="flex flex-row">
           <button
             className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded flex felx-row items-center ${
