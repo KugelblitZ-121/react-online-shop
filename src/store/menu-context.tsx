@@ -10,7 +10,7 @@ const MenuContext = React.createContext<{
   cartItemsNo: number;
   totalCartPrice: string;
   calculateTotalCartPrice: () => void;
-  handleCheckout: () => void;
+  confirmCheckout: () => void;
 }>({
   menu: [],
   setMenu: () => {},
@@ -20,7 +20,7 @@ const MenuContext = React.createContext<{
   cartItemsNo: 0,
   totalCartPrice: "0",
   calculateTotalCartPrice: () => {},
-  handleCheckout: () => {},
+  confirmCheckout: () => {},
 });
 
 const MenuProvider: React.FC = ({ children }) => {
@@ -57,7 +57,7 @@ const MenuProvider: React.FC = ({ children }) => {
     });
     setTotalCartPrice(total.toFixed(2));
   };
-  const handleCheckout = () => {
+  const confirmCheckout = () => {
     setMenu([]);
   };
 
@@ -72,7 +72,7 @@ const MenuProvider: React.FC = ({ children }) => {
         updateCartItemsNo: updateCartItemsNo,
         totalCartPrice: totalCartPrice,
         calculateTotalCartPrice: calculateTotalCartPrice,
-        handleCheckout: handleCheckout,
+        confirmCheckout: confirmCheckout,
       }}
     >
       {children}
