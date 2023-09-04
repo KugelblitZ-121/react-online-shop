@@ -1,4 +1,55 @@
+import { useState } from "react";
+
 const Checkout = () => {
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
+  const [cardCvc, setCardCvc] = useState("");
+
+  // const cardNameRef = useRef<HTMLInputElement>(null);
+  // const cardNumberRef = useRef<HTMLInputElement>(null);
+  // const cardExpiryRef = useRef<HTMLInputElement>(null);
+  // const cardCvcRef = useRef<HTMLInputElement>(null);
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+    setCardName(input);
+  };
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let input = e.target.value.replace(/\D/g, ""); // Remove non-digit characters
+    input = input.slice(0, 16); // Limit to 16 characters
+    let formattedInput = "";
+
+    for (let i = 0; i < input.length; i += 4) {
+      formattedInput += input.slice(i, i + 4);
+      if (i + 4 < input.length) {
+        formattedInput += " ";
+      }
+    }
+    setCardNumber(formattedInput);
+  };
+  const handleExpiryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let input = e.target.value.replace(/\D/g, ""); // Remove non-digit characters
+    input = input.slice(0, 6); // Limit to 6 characters (MMYY)
+
+    if (input.length >= 4) {
+      // Split the input into month and year
+      const month = input.slice(0, 2);
+      const year = input.slice(2, 4);
+
+      // Format as "MM/YY"
+      const formattedDate = `${month}/${year}`;
+      setCardExpiry(formattedDate);
+    } else {
+      setCardExpiry(input);
+    }
+  };
+  const handleCvcChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let input = e.target.value.replace(/\D/g, ""); // Remove non-digit characters
+    input = input.slice(0, 3); // Limit to 16 characters
+    setCardCvc(input);
+  };
+
   return (
     <form className="flex flex-col gap-3 w-full h-full items-center p-5">
       <h1 className="text-4xl font-bold text-center text-white">Checkout</h1>
@@ -6,28 +57,28 @@ const Checkout = () => {
         <div className="w-full">
           <div className="w-96 h-56 m-auto rounded-xl relative text-white shadow-2xl">
             <img className="relative object-cover w-full h-full rounded-xl" src="../../src/assets/creditcard.png" />
-            <div className="w-full px-8 absolute top-8">
+            <div className="w-full px-8 absolute top-8 text-start">
               <div className="flex justify-between">
                 <div className="text-start">
                   <p className="font-light">Name</p>
-                  <p className="font-medium tracking-widest">Karthik P</p>
+                  <p className="font-medium">{cardName?.toUpperCase()}</p>
                 </div>
                 <img className="w-14 h-14" src="../../src/assets/creditcardlogo.png" />
               </div>
-              <div className="text-start">
+              <div className="text-start h-10">
                 <p className="font-light">Card Number</p>
-                <p className="font-medium tracking-more-wider">4642 3489 9867 7632</p>
+                <p className="font-medium tracking-more-wider">{cardNumber}</p>
               </div>
               <div className="pt-6 pr-6">
                 <div className="flex justify-between">
                   <div className="">
-                    <p className="font-light text-xs text-xs">Expiry</p>
-                    <p className="font-medium tracking-wider text-sm">03/25</p>
+                    <p className="font-light text-xs">Expiry</p>
+                    <p className="font-medium tracking-wider text-sm">{cardExpiry}</p>
                   </div>
 
                   <div className="">
                     <p className="font-light text-xs">CVV</p>
-                    <p className="font-bold tracking-more-wider text-sm">···</p>
+                    <p className="font-bold tracking-more-wider text-sm">{cardCvc}</p>
                   </div>
                 </div>
               </div>
@@ -42,6 +93,9 @@ const Checkout = () => {
               type="text"
               name="card_name"
               placeholder="Name on Card"
+              value={cardName}
+              onChange={handleNameChange}
+              maxLength={15}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,8 +117,12 @@ const Checkout = () => {
             <input
               className="rounded-md peer pl-12 pr-2 py-2 border-2 border-grey-500 placeholder-gray-300 focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none"
               type="text"
-              name="card_number"
-              placeholder="0000 0000 0000"
+              id="cardNumber"
+              name="cardNumber"
+              value={cardNumber}
+              maxLength={19} // 16 digits + 3 spaces
+              placeholder="XXXX XXXX XXXX XXXX"
+              onChange={handleNumberChange}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +145,11 @@ const Checkout = () => {
             <input
               className="rounded-md peer pl-12 pr-2 py-2 border-2 border-grey-500 placeholder-gray-300 focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none"
               type="text"
-              name="expire_date"
+              id="expirationDate"
+              name="expirationDate"
+              value={cardExpiry}
+              onChange={handleExpiryChange}
+              maxLength={5} // 4 digits + 1 slash
               placeholder="MM/YY"
             />
             <svg
@@ -133,6 +195,9 @@ const Checkout = () => {
               type="text"
               name="card_cvc"
               placeholder="&bull;&bull;&bull;"
+              value={cardCvc}
+              onChange={handleCvcChange}
+              maxLength={3}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
