@@ -66,8 +66,8 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
       <div className="flex flex-col">
         <motion.div
           className={`flex flex-row alert alert-success text-xl bg-green-500 rounded-lg px-2 py-1`}
-          initial={{ opacity: 0, x: -100 }}
-          animate={showNotification ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+          initial={{ opacity: 0, y: 0 }}
+          animate={showNotification ? { opacity: 1, y: 18 } : { opacity: 0, y: 0 }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
