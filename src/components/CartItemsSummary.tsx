@@ -10,7 +10,7 @@ const CartItemsSummary: React.FC = () => {
     <motion.div initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.1 } }}>
       <div className="h-full flex flex-col items-stretch justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-center pt-10 text-white">Your Cart</h1>
+          <h1 className="text-3xl font-bold text-center pt-2 xs:pt-5 text-white">Your Cart</h1>
           {menu.map((item, index) => (
             <CartItem key={item.id} item={item} index={index} />
           ))}

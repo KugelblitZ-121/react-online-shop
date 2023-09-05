@@ -6,6 +6,9 @@ export default {
       colors: {
         "custom-gray": "#191313", // Define your custom color
       },
+      screens: {
+        xs: "380px", // Define your custom "xs" breakpoint with a width of 320px
+      },
     },
   },
   plugins: [import("daisyui")],
