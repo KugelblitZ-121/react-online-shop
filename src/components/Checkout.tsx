@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Checkout = () => {
   const [cardName, setCardName] = useState("");
@@ -51,10 +52,14 @@ const Checkout = () => {
   };
 
   return (
-    <form className="flex flex-col gap-3 w-full h-full items-center p-5">
-      <h1 className="text-4xl font-bold text-center text-white">Checkout</h1>
-      <div className="flex flex-col gap-3 w-2/3 h-full items-center p-5">
-        <div className="w-full">
+    <motion.form
+      initial={{ opacity: 0, x: -5 }}
+      animate={{ opacity: 1, x: 0, transition: { duration: 0.1 } }}
+      className="flex flex-col gap-3 w-full h-full items-center p-5"
+    >
+      <h1 className="text-3xl font-bold text-center text-white">Checkout</h1>
+      <div className="flex flex-col gap-3 lg:w-2/3 h-full items-center justify-center px-5">
+        <div className="w-full hidden md:block">
           <div className="w-96 h-56 m-auto rounded-xl relative text-white shadow-2xl">
             <img className="relative object-cover w-full h-full rounded-xl" src="../../src/assets/creditcard.png" />
             <div className="w-full px-8 absolute top-8 text-start">
@@ -85,7 +90,7 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           <label className="relative w-full flex flex-col">
             <span className="font-bold mb-3 text-start">Name</span>
             <input
@@ -216,7 +221,7 @@ const Checkout = () => {
           </label>
         </div>
       </div>
-    </form>
+    </motion.form>
   );
 };
 
