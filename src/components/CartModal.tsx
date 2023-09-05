@@ -57,7 +57,7 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.4, type: "spring" }}
       exit={{ opacity: 0, y: 30 }}
       id="modal"
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-md flex justify-center items-center"
@@ -113,7 +113,9 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
                     >
                       <span>Back</span>
                     </button>
-                    <button
+                    <motion.button
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0, transition: { duration: 0.1 } }}
                       className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 w-28 border border-red-700 rounded flex felx-row ml-5 justify-center"
                       onClick={confirmPayment}
                     >
@@ -139,15 +141,17 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
                           "Confirm"
                         )}
                       </span>
-                    </button>
+                    </motion.button>
                   </div>
                 ) : (
-                  <button
+                  <motion.button
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0, transition: { duration: 0.1 } }}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 w-28 border border-red-700 rounded flex felx-row ml-5 justify-center"
                     onClick={handleCheckoutState}
                   >
                     <span>Checkout</span>
-                  </button>
+                  </motion.button>
                 )}
               </div>
             </div>

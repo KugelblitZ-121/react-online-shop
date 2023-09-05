@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+//import { AnimatePresence } from "framer-motion";
 
 import Navbar from "./components/Navbar.jsx";
 import "./App.css";
@@ -19,9 +19,7 @@ const App = () => {
       <Navbar onCartClick={onCartClick} />
       <Promo />
       <Menu />
-      <AnimatePresence>
-        <CartModal isVisable={isVisable} onCartClick={onCartClick} />
-      </AnimatePresence>
+      <CartModal isVisable={isVisable} onCartClick={onCartClick} />
       <Footer />
     </>
   );

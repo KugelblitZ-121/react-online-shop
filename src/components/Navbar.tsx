@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 import { MenuContext } from "../store/menu-context";
 
 const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
@@ -24,7 +25,9 @@ const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
         <div className="flex flex-row w-full items-center justify-between">
           <img src="../../src/assets/logo.jpg" alt="logo" width="80px" />
           <div className={`flex flex-row transition-transform ${style}`}>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
               className="text-2xl font-bold py-2 px-5 border-2 border-red-800 rounded-lg bg-red-500 hover:bg-red-700 flex flex-row items-center transition-opacity"
               onClick={handleCart}
             >
@@ -44,7 +47,7 @@ const Navbar: React.FC<{ onCartClick: (data: boolean) => void }> = (props) => {
                 </svg>
               )}
               <span className="">Cart {cartItemsNo}</span>
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
