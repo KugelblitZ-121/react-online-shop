@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { motion } from "framer-motion";
 import { MenuContext } from "../store/menu-context";
 
@@ -11,24 +11,10 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
   const [isSendingRequest, setIsSendingRequest] = useState(false);
   //const [showNotification, setShowNotification] = useState(false);
 
-  // const cardNameRef = useRef<HTMLInputElement>(null);
-  // const cardNumberRef = useRef<HTMLInputElement>(null);
-  // const cardExpiryRef = useRef<HTMLInputElement>(null);
-  // const cardCvcRef = useRef<HTMLInputElement>(null);
-  const confirmPayment = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsSendingRequest(true);
-
-    setTimeout(() => {
-      confirmCheckout();
-      setIsSendingRequest(false);
-      props.onSendNotification(true);
-    }, 2000);
-
-    setTimeout(() => {
-      props.onSendNotification(false);
-    }, 3500);
-  };
+  const cardNameRef = useRef<HTMLInputElement>(null);
+  const cardNumberRef = useRef<HTMLInputElement>(null);
+  const cardExpiryRef = useRef<HTMLInputElement>(null);
+  const cardCvcRef = useRef<HTMLInputElement>(null);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.replace(/[^a-zA-Z\s]/g, "");
@@ -69,8 +55,48 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
     setCardCvc(input);
   };
 
+  const submitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cardName = cardNameRef.current?.value;
+    const cardNumber = cardNumberRef.current?.value;
+    const cardExpiry = cardExpiryRef.current?.value;
+    const cardCvc = cardCvcRef.current?.value;
+
+    if (cardName === "") {
+      cardNameRef.current?.focus();
+      return;
+    } else if (cardNumber === "" || cardNumber.length < 19) {
+      cardNumberRef.current?.focus();
+      return;
+    } else if (
+      cardExpiry === "" ||
+      cardExpiry.length < 5 ||
+      parseInt(cardExpiry?.slice(0, 2)) > 12 ||
+      parseInt(cardExpiry?.slice(3, 5)) < 23
+    ) {
+      cardExpiryRef.current?.focus();
+      return;
+    } else if (cardCvc === "" || cardCvc.length < 3) {
+      cardCvcRef.current?.focus();
+      return;
+    } else {
+      setIsSendingRequest(true);
+
+      setTimeout(() => {
+        confirmCheckout();
+        setIsSendingRequest(false);
+        props.onSendNotification(true);
+      }, 2000);
+
+      setTimeout(() => {
+        props.onSendNotification(false);
+      }, 3500);
+    }
+  };
+
   return (
     <motion.form
+      onSubmit={submitForm}
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0, transition: { duration: 0.2 } }}
       className="flex flex-col gap-3 w-full h-full items-center p-5"
@@ -117,6 +143,7 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
               name="card_name"
               placeholder="Name on Card"
               value={cardName}
+              ref={cardNameRef}
               onChange={handleNameChange}
               maxLength={15}
             />
@@ -143,6 +170,7 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
               id="cardNumber"
               name="cardNumber"
               value={cardNumber}
+              ref={cardNumberRef}
               maxLength={19} // 16 digits + 3 spaces
               placeholder="XXXX XXXX XXXX XXXX"
               onChange={handleNumberChange}
@@ -171,8 +199,11 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
               id="expirationDate"
               name="expirationDate"
               value={cardExpiry}
+              ref={cardExpiryRef}
               onChange={handleExpiryChange}
               maxLength={5} // 4 digits + 1 slash
+              min={0}
+              max={12}
               placeholder="MM/YY"
             />
             <svg
@@ -219,6 +250,7 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
               name="card_cvc"
               placeholder="&bull;&bull;&bull;"
               value={cardCvc}
+              ref={cardCvcRef}
               onChange={handleCvcChange}
               maxLength={3}
             />
@@ -240,8 +272,9 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
         </div>
       </div>
       <button
+        type="submit"
         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 w-28 border border-red-700 rounded flex felx-row ml-5 justify-center"
-        onClick={confirmPayment}
+        //onClick={confirmPayment}
       >
         <span>
           {isSendingRequest ? (

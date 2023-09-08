@@ -27,7 +27,6 @@ const MenuProvider: React.FC = ({ children }) => {
   const [menu, setMenu] = useState<Item[]>([]);
   const [cartItemsNo, setCartItemsNo] = useState<number>(0);
   const [totalCartPrice, setTotalCartPrice] = useState<string>("0");
-  const [showNotification, setShowNotification] = useState(false);
 
   const addItem = (item: Item, quantity: number) => {
     // Check if the item already exists in the cart
@@ -60,12 +59,6 @@ const MenuProvider: React.FC = ({ children }) => {
   };
   const confirmCheckout = () => {
     setMenu([]);
-  };
-  const showNotificationHandler = () => {
-    setShowNotification(true);
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 2000);
   };
 
   return (
