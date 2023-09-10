@@ -14,7 +14,7 @@
 
 @media (min-width: 1024px) {
   .large-bg {
-    background-image: url("../../src/assets/background3.png");
+    background-image: url("/public/assets/background3.png");
     background-size: cover;
     background-position: center;
     height: "80vh";

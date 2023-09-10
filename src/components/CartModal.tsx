@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MenuContext } from "../store/menu-context";
 import CartItemsSummary from "./CartItemsSummary";
 import Checkout from "./Checkout";
+import logo from "../../src/assets/logo.jpg";
 
 const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => void }> = (props) => {
   const { menu, totalCartPrice, calculateTotalCartPrice } = useContext(MenuContext);
@@ -83,7 +84,7 @@ const CartModal: React.FC<{ isVisable: boolean; onCartClick: (data: boolean) => 
         <div className="bg-custom-gray md:w-[calc(70vw)] w-[calc(90vw)] h-[calc(65vh)] md:h-[calc(70vh)] rounded-md overflow-y-auto">
           {totalCartPrice === "0.00" ? (
             <div className="flex flex-col justify-center items-strech h-full">
-              <img src="../../src/assets/logo.jpg" alt="logo" width="150px" className="mx-auto" />
+              <img src={logo} alt="logo" width="150px" className="mx-auto" />
 
               <h1 className="lg:text-4xl text-2xl font-bold text-center pt-5 text-white">Your Cart is empty :( </h1>
             </div>

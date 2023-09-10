@@ -1,3 +1,5 @@
+import logo from "../../src/assets/logo.jpg";
+
 function Footer() {
   return (
     <footer className="bg-custom-grey">
@@ -5,7 +7,7 @@ function Footer() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="https://github.com/KugelblitZ-121/react-online-shop" className="flex items-center justify-center">
-              <img src="../../src/assets/logo.jpg" className="h-20 mr-3" alt="FlowBite Logo" />
+              <img src={logo} className="h-20 mr-3" alt="Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Hunger</span>
             </a>
           </div>
@@ -51,7 +53,7 @@ function Footer() {
               Source code.
             </a>
           </span>
-          <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+          <div className="flex mt-4 space-x-5 justify-center sm:mt-0">
             <a
               href="https://discord.com/channels/@me"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
