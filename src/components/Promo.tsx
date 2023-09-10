@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { MenuContext } from "../store/menu-context";
 import Item from "../entities/item";
-import background from "../../src/assets/background3.png";
+//import background from "../../src/assets/background3.png";
 import backgroundMobile from "../../src/assets/backgroundmobile2.png";
 import promoImage from "../../src/assets/promoitem.jpg";
 

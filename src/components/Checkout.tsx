@@ -2,6 +2,9 @@ import React, { useState, useContext, useRef } from "react";
 import { motion } from "framer-motion";
 import { MenuContext } from "../store/menu-context";
 
+import creditcard from "../../src/assets/creditcard.png";
+import creditcardLogo from "../../src/assets/creditcardlogo.png";
+
 const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => void }> = (props) => {
   const { confirmCheckout } = useContext(MenuContext);
   const [cardName, setCardName] = useState("");
@@ -105,14 +108,14 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
       <div className="flex flex-col gap-3 lg:w-2/3 h-full items-center justify-center px-5">
         <div className="w-full hidden md:block">
           <div className="w-96 h-56 m-auto rounded-xl relative text-white shadow-2xl">
-            <img className="relative object-cover w-full h-full rounded-xl" src="../../src/assets/creditcard.png" />
+            <img className="relative object-cover w-full h-full rounded-xl" src={creditcard} />
             <div className="w-full px-8 absolute top-8 text-start">
               <div className="flex justify-between">
                 <div className="text-start">
                   <p className="font-light">Name</p>
                   <p className="font-medium">{cardName?.toUpperCase()}</p>
                 </div>
-                <img className="w-14 h-14" src="../../src/assets/creditcardlogo.png" />
+                <img className="w-14 h-14" src={creditcardLogo} />
               </div>
               <div className="text-start h-10">
                 <p className="font-light">Card Number</p>
