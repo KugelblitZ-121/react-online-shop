@@ -25,9 +25,7 @@ const Promo: React.FC = () => {
     setQuantity(0);
   };
   return (
-    <div
-      className={`grid grid-cols-2 lg:bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]`}
-    >
+    <div className={`grid grid-cols-2 large-bg h-[calc(80vh)]`}>
       <div className="flex flex-col items-center justify-center col-span-2 lg:col-span-1 lg:ml-20">
         <img src={backgroundMobile} className="lg:hidden" width={"75%"} />
         <h1 className="text-6xl font-bold mb-10">

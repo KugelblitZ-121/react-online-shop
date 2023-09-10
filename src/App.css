@@ -11,3 +11,12 @@
   text-fill-color: transparent;
   background-image: linear-gradient(to right, #d70e0e, #e806b3); /* Adjust gradient colors */
 }
+
+@media (min-width: 1024px) {
+  .large-bg {
+    background-image: url("../../src/assets/background3.png");
+    background-size: cover;
+    background-position: center;
+    height: "80vh";
+  }
+}
