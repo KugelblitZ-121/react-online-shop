@@ -1,27 +1,15 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Have fun exploring the website :) https://kugelblitz-121.github.io/react-online-shop/
 
-Currently, two official plugins are available:
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/6cdc811d-d202-4724-8172-d41fca6b5c5b)
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/4d287c0e-d118-43d3-a5b3-0b32106efd46)
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/f9a5eb47-0746-4485-85c2-d8847faf9967)
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/dbb395f6-4d06-43ca-bafe-aa9069a1d26f)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/aeb659c5-0709-49b1-a189-c8b63bc011e3)
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/c6e4be9c-c5e1-4156-a026-428a43f4ae10)
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/5ce53be4-f8a1-4c29-8f47-d1213923d772)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
