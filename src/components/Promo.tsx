@@ -2,6 +2,10 @@ import { useContext, useState } from "react";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { MenuContext } from "../store/menu-context";
 import Item from "../entities/item";
+import background from "../../src/assets/background3.png";
+import backgroundMobile from "../../src/assets/backgroundmobile2.png";
+import promoImage from "../../src/assets/promoitem.jpg";
+
 const Promo: React.FC = () => {
   const { addItem } = useContext(MenuContext);
   const [quantity, setQuantity] = useState(1);
@@ -16,14 +20,16 @@ const Promo: React.FC = () => {
     }
   };
   const handleAddToCart = () => {
-    const promoItem = new Item(8, "Promo", 14.99, "../../src/assets/promoitem.jpg", "Promo", quantity);
+    const promoItem = new Item(8, "Promo", 14.99, promoImage, "Promo", quantity);
     addItem(promoItem, quantity);
     setQuantity(0);
   };
   return (
-    <div className="grid grid-cols-2 lg:bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]">
+    <div
+      className={`grid grid-cols-2 lg:bg-[url('../../src/assets/background3.png')] bg-cover bg-center h-[calc(80vh)]`}
+    >
       <div className="flex flex-col items-center justify-center col-span-2 lg:col-span-1 lg:ml-20">
-        <img src="../../src/assets/backgroundmobile2.png" className="lg:hidden" width={"75%"} />
+        <img src={backgroundMobile} className="lg:hidden" width={"75%"} />
         <h1 className="text-6xl font-bold mb-10">
           Our new <span className="text-6xl promo-text font-serif">PROMO</span>
         </h1>

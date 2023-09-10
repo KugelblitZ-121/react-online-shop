@@ -4,8 +4,7 @@ import { MenuContext } from "../store/menu-context";
 
 const CartItem: React.FC<{ item: Item; index: number }> = ({ item, index }) => {
   const { menu, calculateTotalCartPrice, removeItem } = useContext(MenuContext);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [quantity, setQuantity] = useState(0);
+  const [, setQuantity] = useState(0);
 
   return (
     <div className="flex flex-col">
