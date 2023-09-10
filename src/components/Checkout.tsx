@@ -65,18 +65,18 @@ const Checkout: React.FC<{ onSendNotification: (notificationIsSent: boolean) => 
     if (cardName === "") {
       cardNameRef.current?.focus();
       return;
-    } else if (cardNumber === "" || cardNumber.length < 19) {
+    } else if (!cardNumber || cardNumber.length < 19) {
       cardNumberRef.current?.focus();
       return;
     } else if (
-      cardExpiry === "" ||
+      !cardExpiry ||
       cardExpiry.length < 5 ||
       parseInt(cardExpiry?.slice(0, 2)) > 12 ||
       parseInt(cardExpiry?.slice(3, 5)) < 23
     ) {
       cardExpiryRef.current?.focus();
       return;
-    } else if (cardCvc === "" || cardCvc.length < 3) {
+    } else if (!cardCvc || cardCvc.length < 3) {
       cardCvcRef.current?.focus();
       return;
     } else {

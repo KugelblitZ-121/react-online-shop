@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import Item from "../entities/item";
 
 const MenuContext = React.createContext<{
@@ -23,7 +23,7 @@ const MenuContext = React.createContext<{
   confirmCheckout: () => {},
 });
 
-const MenuProvider: React.FC = ({ children }) => {
+const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [menu, setMenu] = useState<Item[]>([]);
   const [cartItemsNo, setCartItemsNo] = useState<number>(0);
   const [totalCartPrice, setTotalCartPrice] = useState<string>("0");
