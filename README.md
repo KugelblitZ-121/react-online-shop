@@ -9,5 +9,7 @@ Have fun exploring the website :) https://kugelblitz-121.github.io/react-online-
 
 ![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/4745bf7e-7f03-47ed-9706-854039e25ec9)
 ![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/c6e4be9c-c5e1-4156-a026-428a43f4ae10)
+![image](https://github.com/KugelblitZ-121/react-online-shop/assets/82136584/5ce53be4-f8a1-4c29-8f47-d1213923d772)
+
 
 
